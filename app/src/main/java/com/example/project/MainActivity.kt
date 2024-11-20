@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_enter_name)
+        setContentView(R.layout.activity_main)
     }
 
     fun onContinueClicked(view: View) {
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             editor.apply()
 
             // Navigate to Lessons List screen
-            val intent = Intent(this, LessonsListActivity::class.java)
+            val intent = Intent(this, WelcomeBackActivity::class.java)
             startActivity(intent)
             finish()
         }
