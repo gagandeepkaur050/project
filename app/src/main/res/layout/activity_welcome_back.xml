@@ -1,0 +1,34 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/textViewWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome, User!"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/textViewProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Progress: 0/5 lessons completed"/>
+
+    <Button
+        android:id="@+id/buttonGoToLessons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go to Lessons List"
+        android:onClick="onGoToLessonsClicked"/>
+
+    <Button
+        android:id="@+id/buttonResetData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset Data"
+        android:onClick="onResetDataClicked"/>
+</LinearLayout>
