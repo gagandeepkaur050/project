@@ -23,19 +23,28 @@ class WelcomeBackActivity : AppCompatActivity() {
         val progress = getLessonProgress()
 
         findViewById<TextView>(R.id.textViewWelcome).text = "Welcome, $userName!"
-        findViewById<TextView>(R.id.textViewProgress).text = "Your Progress: $progress/5 lessons completed"
+        findViewById<TextView>(R.id.textViewProgress).text = "Your Progress: $progress % lessons completed"
     }
 
     private fun getLessonProgress(): Int {
         val sharedPreferences = getSharedPreferences("lessonPrefs", MODE_PRIVATE)
         var progress = 0
+
+        // Count the number of completed lessons
         for (i in 0 until 5) {
             if (sharedPreferences.getBoolean("lesson_$i", false)) {
                 progress++
             }
         }
-        return progress
+
+        // Calculate the percentage of lessons completed (out of 5)
+        val totalLessons = 5
+        val progressPercentage = (progress.toDouble() / totalLessons) * 100
+
+        // Return the progress as an integer (percentage)
+        return progressPercentage.toInt()
     }
+
 
     fun onGoToLessonsClicked(view: View) {
         val intent = Intent(this, LessonsListActivity::class.java)
