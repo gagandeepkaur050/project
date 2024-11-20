@@ -1,5 +1,6 @@
 package com.example.project
 
+import android.annotation.SuppressLint
 import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.os.Bundle
@@ -13,6 +14,7 @@ import com.example.project.R
 
 class WelcomeBackActivity : AppCompatActivity() {
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome_back)

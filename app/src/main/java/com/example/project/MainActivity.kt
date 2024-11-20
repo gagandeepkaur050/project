@@ -1,5 +1,6 @@
 package com.example.project
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -10,23 +11,26 @@ import com.example.project.R
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var textView: TextView
-    private lateinit var editText: EditText
-    private lateinit var button: Button
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        // Initialize UI elements
-        textView = findViewById(R.id.textView)
-        editText = findViewById(R.id.editText)
-        button = findViewById(R.id.button)
+        setContentView(R.layout.activity_enter_name)
     }
 
-    // Method called when the button is clicked
-    fun onSubmitClicked(view: View) {
-        val userInput = editText.text.toString() // Get the text from EditText
-        textView.text = "Hello, $userInput!" // Update the TextView
+    fun onContinueClicked(view: View) {
+        val userName = findViewById<EditText>(R.id.editTextName).text.toString()
+
+        if (userName.isNotEmpty()) {
+            // Save to SharedPreferences
+            val sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.putString("user_name", userName)
+            editor.putBoolean("isFirstTime", false)
+            editor.apply()
+
+            // Navigate to Lessons List screen
+            val intent = Intent(this, LessonsListActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }
