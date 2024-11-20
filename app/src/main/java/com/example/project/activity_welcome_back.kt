@@ -1,3 +1,5 @@
+package com.example.project
+
 import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +8,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.startActivity
 import com.example.project.EnterNameActivity
+import com.example.project.LessonsListActivity
 import com.example.project.R
 
 class WelcomeBackActivity : AppCompatActivity() {
