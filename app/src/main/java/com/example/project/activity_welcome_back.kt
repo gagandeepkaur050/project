@@ -72,11 +72,12 @@ class WelcomeBackActivity : AppCompatActivity() {
     fun onResetDataClicked(view: View) {
         val sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE)
         val editor = sharedPreferences.edit()
+        //editor.remove()
         editor.clear()
         editor.apply()
 
-//        val intent = Intent(this, MainActivity::class.java)
-//        startActivity(intent)
-//        finish()
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }
