@@ -16,16 +16,10 @@
             android:name=".LessonDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".item_lesson"
-            android:exported="false" />
-        <activity
             android:name=".LessonsListActivity"
             android:exported="false" />
         <activity
             android:name=".WelcomeBackActivity"
-            android:exported="false" />
-        <activity
-            android:name=".EnterNameActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

@@ -18,6 +18,18 @@
         android:layout_height="wrap_content"
         android:text="Your Progress: 0/5 lessons completed"/>
 
+    <TextView
+        android:id="@+id/LessonCompleted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Lessons Completed:"/>
+    <TextView
+        android:id="@+id/LessonRemaining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lessons Remaining:"/>
+
     <Button
         android:id="@+id/buttonGoToLessons"
         android:layout_width="wrap_content"
@@ -31,4 +43,5 @@
         android:layout_height="wrap_content"
         android:text="Reset Data"
         android:onClick="onResetDataClicked"/>
+
 </LinearLayout>
