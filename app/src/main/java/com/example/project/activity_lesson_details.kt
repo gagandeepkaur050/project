@@ -15,6 +15,7 @@ class LessonDetailsActivity : AppCompatActivity() {
 
     private var lessonUrl: String = ""
     private var lessonNumber: Int = -1
+    private var lessonDescription: String = ""
 
 
 
@@ -26,13 +27,16 @@ class LessonDetailsActivity : AppCompatActivity() {
         lessonNumber = intent.getIntExtra("lesson_number", -1)
         val lessonName = intent.getStringExtra("lesson_name") ?: "Unknown Lesson"
         lessonUrl = intent.getStringExtra("lesson_url") ?: ""
+        lessonDescription = intent.getStringExtra("lesson_description") ?: "No description available"
 
         // Set the lesson details on the UI
         val lessonNameTextView: TextView = findViewById(R.id.lessonNameTextView)
         val lessonNumberTextView: TextView = findViewById(R.id.lessonNumberTextView)
+        val lessonDetailTextView: TextView = findViewById(R.id.lessonDetail)
 
         lessonNameTextView.text = "Lesson: $lessonName"
         lessonNumberTextView.text = "Lesson Number: $lessonNumber"
+        lessonDetailTextView.text = lessonDescription
 
     }
 

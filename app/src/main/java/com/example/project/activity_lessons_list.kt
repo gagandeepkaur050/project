@@ -17,7 +17,8 @@ data class Lesson(
     val name: String,
     val length: String,
     val isCompleted: Boolean,
-    val url: String // Defining URL as a String
+    val url: String,
+    val description: String
 )
 
 
@@ -53,11 +54,30 @@ class LessonsListActivity : AppCompatActivity() {
     private fun getLessons(): List<Lesson> {
         //val sharedPreferences = getSharedPreferences("lesson_status", Context.MODE_PRIVATE)
         return listOf(
-            Lesson(1, "Lesson 1", "10:30", false, "https://www.example.com/lesson1"),
-            Lesson(2, "Lesson 2", "15:45", false, "https://www.example.com/lesson2"),
-            Lesson(3, "Lesson 3", "12:00", false, "https://www.example.com/lesson3"),
-            Lesson(4, "Lesson 4", "8:30", false, "https://www.example.com/lesson4"),
-            Lesson(5, "Lesson 5", "14:00", false, "https://www.example.com/lesson5")
+            Lesson(1, "HTML Tutorial", "10:30", false, "https://www.example.com/lesson1", "HTML is the standard markup language for creating Web pages.\n"),
+            Lesson(2, "CSS", "15:45", false, "https://www.example.com/lesson2","CSS is the language we use to style an HTML document.\n" +
+                    "\n" +
+                    "CSS describes how HTML elements should be displayed.\n" +
+                    "\n" +
+                    "This tutorial will teach you CSS from basic to advanced."),
+            Lesson(3, "JavaScript ", "12:00", false, "https://www.example.com/lesson3","JavaScript is the world's most popular programming language.\n" +
+                    "\n" +
+                    "JavaScript is the programming language of the Web.\n" +
+                    "\n" +
+                    "JavaScript is easy to learn.\n" +
+                    "\n" +
+                    "This tutorial will teach you JavaScript from basic to advanced.\n" +
+                    "\n"),
+            Lesson(4, "React ", "8:30", false, "https://www.example.com/lesson4","React is a JavaScript library for building user interfaces.\n" +
+                    "\n" +
+                    "React is used to build single-page applications.\n" +
+                    "\n" +
+                    "React allows us to create reusable UI components."),
+            Lesson(5, "Kotlin", "14:00", false, "https://www.example.com/lesson5","Kotlin is a modern, trending programming language.\n" +
+                    "\n" +
+                    "Kotlin is easy to learn, especially if you already know Java (it is 100% compatible with Java).\n" +
+                    "\n" +
+                    "Kotlin is used to develop Android apps, server side apps, and much more.")
         )
     }
 

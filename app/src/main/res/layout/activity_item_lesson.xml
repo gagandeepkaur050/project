@@ -2,7 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="60dp"
     android:padding="16dp"
     android:background="@drawable/border"
     android:gravity="center_vertical">
@@ -30,8 +30,8 @@ android:textColor="#FF0000"/>
     <ImageView
         android:id="@+id/tickIcon"
         android:layout_width="50dp"
-    android:layout_height="20dp"
-    android:src="@drawable/ic_tick"
+    android:layout_height="30dp"
+    android:src="@drawable/tick"
     android:visibility="gone"
     android:gravity="center_vertical"/>
 

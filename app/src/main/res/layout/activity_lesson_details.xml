@@ -10,14 +10,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lesson Name"
-        android:textSize="18sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/lessonNumberTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lesson Number"
+        android:textSize="18sp" />
+    <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/lessonDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lesson details will be shown here."
         android:textSize="16sp" />
+</ScrollView>
 
     <!-- Button to watch the lesson video -->
     <Button
