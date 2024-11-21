@@ -36,7 +36,7 @@ class LessonDetailsActivity : AppCompatActivity() {
         val lessonNameTextView: TextView = findViewById(R.id.lessonNameTextView)
         val lessonDetailTextView: TextView = findViewById(R.id.lessonDetail)
         val lessonLengthTextView: TextView = findViewById(R.id.lessonLengthTextView)
-        lessonNameTextView.text = "$lessonNumber: $lessonName"
+        lessonNameTextView.text = "$lessonNumber.$lessonName"
         lessonDetailTextView.text = lessonDescription
         lessonLengthTextView.text = "Length: $lessonLength"
 
