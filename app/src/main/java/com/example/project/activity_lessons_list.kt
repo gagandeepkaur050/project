@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 data class Lesson(
     val number: Int,
@@ -16,6 +18,8 @@ data class Lesson(
     val isCompleted: Boolean,
     val url: String // Defining URL as a String
 )
+
+
 
 class LessonsListActivity : AppCompatActivity() {
 
@@ -26,13 +30,32 @@ class LessonsListActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewLessons)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
+
+        // Gson to store the data in SharedPreferences
+//        val lessonList = mutableListOf(false, false, false, false,false)
+//        val gson = Gson()
+//        val jsonString = gson.toJson(lessonList)
+//        val sharedPreferences = getSharedPreferences("lessons",Context.MODE_PRIVATE)
+//        sharedPreferences.edit().putString("LESSON_LIST",jsonString).apply()
+
+        val sharedPreferences = getSharedPreferences("lessons", Context.MODE_PRIVATE)
+        val gson = Gson()
+        val jsonString = sharedPreferences.getString("LESSON_LIST",null)
+        var lessonList:MutableList<Boolean> = mutableListOf()
+
+        if(jsonString != null){
+            val type = object : TypeToken<List<Boolean>>() {}.type
+            var tempList:List<Boolean> = gson.fromJson(jsonString, type)
+            lessonList = tempList.toMutableList()
+        }
+
         val lessons = getLessons().toMutableList()  // Convert to mutable list
-        val adapter = LessonsAdapter(lessons)
+        val adapter = LessonsAdapter(lessons,lessonList)
         recyclerView.adapter = adapter
     }
 
     private fun getLessons(): List<Lesson> {
-        val sharedPreferences = getSharedPreferences("lesson_status", Context.MODE_PRIVATE)
+        //val sharedPreferences = getSharedPreferences("lesson_status", Context.MODE_PRIVATE)
         return listOf(
             Lesson(1, "Lesson 1", "10:30", false, "https://www.example.com/lesson1"),
             Lesson(2, "Lesson 2", "15:45", false, "https://www.example.com/lesson2"),
@@ -40,6 +63,29 @@ class LessonsListActivity : AppCompatActivity() {
             Lesson(4, "Lesson 4", "8:30", false, "https://www.example.com/lesson4"),
             Lesson(5, "Lesson 5", "14:00", false, "https://www.example.com/lesson5")
         )
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val sharedPreferences = getSharedPreferences("lessons", Context.MODE_PRIVATE)
+        val gson = Gson()
+        val jsonString = sharedPreferences.getString("LESSON_LIST",null)
+        var lessonList:MutableList<Boolean> = mutableListOf()
+
+        if(jsonString != null){
+            val type = object : TypeToken<List<Boolean>>() {}.type
+            var tempList:List<Boolean> = gson.fromJson(jsonString, type)
+            lessonList = tempList.toMutableList()
+        }
+
+        val lessons = getLessons().toMutableList()  // Convert to mutable list
+        val adapter = LessonsAdapter(lessons,lessonList)
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewLessons)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        recyclerView.adapter = adapter
+
+        adapter.notifyDataSetChanged()
     }
 
     fun onButtonBack(view: View) {

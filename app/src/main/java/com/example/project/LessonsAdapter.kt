@@ -1,5 +1,6 @@
 package com.example.project
 
+import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +10,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 //import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
-class LessonsAdapter(private val lessons: MutableList<Lesson>) : RecyclerView.Adapter<LessonsAdapter.LessonViewHolder>() {
+class LessonsAdapter(private val lessons: MutableList<Lesson>,val lessonlist:MutableList<Boolean>) : RecyclerView.Adapter<LessonsAdapter.LessonViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LessonViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_item_lesson, parent, false)
@@ -23,6 +24,7 @@ class LessonsAdapter(private val lessons: MutableList<Lesson>) : RecyclerView.Ad
 
     override fun getItemCount() = lessons.size
 
+
     inner class LessonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private val lessonName: TextView = itemView.findViewById(R.id.textViewLessonName)
@@ -30,7 +32,9 @@ class LessonsAdapter(private val lessons: MutableList<Lesson>) : RecyclerView.Ad
 
         fun bind(lesson: Lesson) {
             lessonName.text = "${lesson.number}. ${lesson.name} - ${lesson.length}"
-            lessonStatus.text = if (lesson.isCompleted) "Completed" else "Not Completed"
+
+            //lessonStatus.text = if (lesson.isCompleted) "Completed" else "Not Completed"
+            lessonStatus.text = if (lessonlist[lesson.number-1]) "Completed" else "Not Completed"
 
             lessonName.setOnClickListener {
                 // Create an Intent to navigate to LessonDetailsActivity
