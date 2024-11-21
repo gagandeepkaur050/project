@@ -1,28 +1,38 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<!-- activity_lesson_details.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <TextView
-        android:id="@+id/textViewLessonDetails"
+        android:id="@+id/lessonNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lesson Details"
-        android:textSize="20sp"/>
+        android:text="Lesson Name"
+        android:textSize="18sp" />
 
+    <TextView
+        android:id="@+id/lessonNumberTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lesson Number"
+        android:textSize="16sp" />
+
+    <!-- Button to watch the lesson video -->
     <Button
-        android:id="@+id/buttonWatchLesson"
+        android:id="@+id/btnWatchLesson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Watch Lesson"
         android:onClick="onWatchLessonClicked"/>
 
+    <!-- Button to mark the lesson as complete -->
     <Button
-        android:id="@+id/buttonMarkAsComplete"
+        android:id="@+id/btnMarkComplete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mark as Complete"
-        android:onClick="onMarkAsCompleteClicked"/>
+        android:onClick="onMarkAsCompleteClicked" />
+
 </LinearLayout>

@@ -1,42 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
-
-    <!-- EditText for user input -->
+    android:gravity="center">
+    <TextView
+        android:id="@+id/textViewLessonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter Your Name"
+        android:gravity="center"
+        android:textSize="18sp"/>
     <EditText
         android:id="@+id/editTextName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter your name"
-        android:inputType="textPersonName" />
+        android:inputType="text"/>
 
-    <!-- Button to save the input -->
     <Button
-        android:id="@+id/buttonSave"
+        android:id="@+id/buttonContinue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save Name" />
-
-    <!-- Button to retrieve and display the input -->
-    <Button
-        android:id="@+id/buttonRetrieve"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Show Saved Name" />
-
-    <!-- TextView to display the stored value -->
-    <TextView
-        android:id="@+id/textViewDisplay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Stored name will appear here"
-        android:paddingTop="16dp" />
-
-
+        android:text="Continue"
+        android:onClick="onContinueClicked"/>
 </LinearLayout>

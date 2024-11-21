@@ -10,6 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Lesson 1 - 10:30"
+        android:clickable="true"
+        android:focusable="true"
         android:textSize="18sp"/>
 
     <TextView
