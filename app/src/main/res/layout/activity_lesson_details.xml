@@ -10,17 +10,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lesson Name"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"/>
 
     <TextView
         android:id="@+id/lessonNumberTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lesson Number"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"/>
     <ScrollView
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" >
 
     <TextView
         android:id="@+id/lessonDetail"
@@ -36,7 +41,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Watch Lesson"
-        android:onClick="onWatchLessonClicked"/>
+        android:onClick="onWatchLessonClicked"
+        android:textColor="#FFFFFF"
+        android:background="#E0D680"/>
 
     <!-- Button to mark the lesson as complete -->
     <Button
@@ -44,6 +51,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mark as Complete"
-        android:onClick="onMarkAsCompleteClicked" />
+        android:onClick="onMarkAsCompleteClicked"
+        android:textColor="#FFFFFF"
+        android:background="#E0D680"/>
 
 </LinearLayout>
