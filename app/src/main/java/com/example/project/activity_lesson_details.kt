@@ -8,11 +8,15 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 class LessonDetailsActivity : AppCompatActivity() {
 
     private var lessonUrl: String = ""
     private var lessonNumber: Int = -1
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,14 +33,30 @@ class LessonDetailsActivity : AppCompatActivity() {
 
         lessonNameTextView.text = "Lesson: $lessonName"
         lessonNumberTextView.text = "Lesson Number: $lessonNumber"
+
     }
 
     // When the user clicks to mark the lesson as complete
     fun onMarkAsCompleteClicked(view: View) {
-        val sharedPreferences = getSharedPreferences("lesson_status", Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putBoolean("lesson_$lessonNumber", true) // Mark the lesson as complete
-        editor.apply()
+        val sharedPreferences = getSharedPreferences("lessons", Context.MODE_PRIVATE)
+        val gson = Gson()
+        val jsonString = sharedPreferences.getString("LESSON_LIST",null)
+        var lessonList:MutableList<Boolean> = mutableListOf()
+
+        if(jsonString != null){
+            val type = object : TypeToken<List<Boolean>>() {}.type
+            var tempList:List<Boolean> = gson.fromJson(jsonString, type)
+            lessonList = tempList.toMutableList()
+        }
+        lessonList[lessonNumber-1] = true
+        val updatedJsonString = gson.toJson(lessonList)
+        sharedPreferences.edit().putString("LESSON_LIST", updatedJsonString).apply()
+
+
+        //val sharedPreferences = getSharedPreferences("lesson_status", Context.MODE_PRIVATE)
+//        val editor = sharedPreferences.edit()
+//        editor.putBoolean("lesson_$lessonNumber", true) // Mark the lesson as complete
+//        editor.apply()
 
         Toast.makeText(this, "Lesson marked as complete", Toast.LENGTH_SHORT).show()
 

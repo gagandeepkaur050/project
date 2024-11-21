@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.project.R
+import com.google.gson.Gson
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +19,12 @@ class MainActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("userPrefs", Context.MODE_PRIVATE)
         //val username = sharedPreferences.getString("user_name", "").toString()
         val isFirstTime = sharedPreferences.getBoolean("isFirstTime",true)
+
+        val lessonList = mutableListOf(false, false, false, false,false)
+        val gson = Gson()
+        val jsonString = gson.toJson(lessonList)
+        val sharedPreferences2 = getSharedPreferences("lessons",Context.MODE_PRIVATE)
+        sharedPreferences2.edit().putString("LESSON_LIST",jsonString).apply()
 
         if (isFirstTime == false) {
             val intent = Intent(this, WelcomeBackActivity::class.java)
