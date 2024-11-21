@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+//import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 class LessonsAdapter(private val lessons: MutableList<Lesson>) : RecyclerView.Adapter<LessonsAdapter.LessonViewHolder>() {
 
@@ -22,6 +24,7 @@ class LessonsAdapter(private val lessons: MutableList<Lesson>) : RecyclerView.Ad
     override fun getItemCount() = lessons.size
 
     inner class LessonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
         private val lessonName: TextView = itemView.findViewById(R.id.textViewLessonName)
         private val lessonStatus: TextView = itemView.findViewById(R.id.textViewLessonStatus)
 
@@ -29,20 +32,23 @@ class LessonsAdapter(private val lessons: MutableList<Lesson>) : RecyclerView.Ad
             lessonName.text = "${lesson.number}. ${lesson.name} - ${lesson.length}"
             lessonStatus.text = if (lesson.isCompleted) "Completed" else "Not Completed"
 
-            itemView.setOnClickListener {
+            lessonName.setOnClickListener {
+                // Create an Intent to navigate to LessonDetailsActivity
                 val intent = Intent(itemView.context, LessonDetailsActivity::class.java)
-                intent.putExtra("lesson_number", lesson.number)
-                intent.putExtra("lesson_name", lesson.name)
-                intent.putExtra("lesson_url", lesson.url)
+                // Pass additional data like lesson number, name, and URL
+                intent.putExtra("lesson_number", lesson.number)  // Pass lesson number
+                intent.putExtra("lesson_name", lesson.name)      // Pass lesson name
+                intent.putExtra("lesson_url", lesson.url)        // Pass lesson URL (if available)
+
                 itemView.context.startActivity(intent)
+                // Show a Toast message
+                Toast.makeText(itemView.context, "Navigating to Lesson ${lesson.number}", Toast.LENGTH_SHORT).show()
             }
         }
-    }
-
-    // To refresh the data in the adapter
-    fun updateLessons(newLessons: List<Lesson>) {
-        lessons.clear()
-        lessons.addAll(newLessons)
-        notifyDataSetChanged()
+        fun updateLessons(newLessons: List<Lesson>) {
+            lessons.clear()
+            lessons.addAll(newLessons)
+            notifyDataSetChanged()
+        }
     }
 }
