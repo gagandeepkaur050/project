@@ -16,6 +16,7 @@ class LessonDetailsActivity : AppCompatActivity() {
     private var lessonUrl: String = ""
     private var lessonNumber: Int = -1
     private var lessonDescription: String = ""
+    private var lessonLength: String = ""
 
 
 
@@ -31,12 +32,13 @@ class LessonDetailsActivity : AppCompatActivity() {
 
         // Set the lesson details on the UI
         val lessonNameTextView: TextView = findViewById(R.id.lessonNameTextView)
-        val lessonNumberTextView: TextView = findViewById(R.id.lessonNumberTextView)
+        //val lessonNumberTextView: TextView = findViewById(R.id.lessonNumberTextView)
         val lessonDetailTextView: TextView = findViewById(R.id.lessonDetail)
-
-        lessonNameTextView.text = "Lesson: $lessonName"
-        lessonNumberTextView.text = "Lesson Number: $lessonNumber"
+        val lessonLengthTextView: TextView = findViewById(R.id.lessonLengthTextView)
+        lessonNameTextView.text = "$lessonNumber: $lessonName"
+        //lessonNumberTextView.text = "Lesson Number: $lessonNumber"
         lessonDetailTextView.text = lessonDescription
+        lessonLengthTextView.text = "Length: $lessonLength"
 
     }
 

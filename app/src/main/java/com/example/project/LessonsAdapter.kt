@@ -52,6 +52,7 @@ class LessonsAdapter(private val lessons: MutableList<Lesson>,val lessonlist:Mut
                 intent.putExtra("lesson_name", lesson.name)      // Pass lesson name
                 intent.putExtra("lesson_url", lesson.url)        // Pass lesson URL (if available)
                 intent.putExtra("lesson_description", lesson.description)
+                intent.putExtra("lesson_length", lesson.length)
                 itemView.context.startActivity(intent)
                 // Show a Toast message
                 Toast.makeText(itemView.context, "Navigating to Lesson ${lesson.number}", Toast.LENGTH_SHORT).show()
