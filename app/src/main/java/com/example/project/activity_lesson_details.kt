@@ -29,14 +29,14 @@ class LessonDetailsActivity : AppCompatActivity() {
         val lessonName = intent.getStringExtra("lesson_name") ?: "Unknown Lesson"
         lessonUrl = intent.getStringExtra("lesson_url") ?: ""
         lessonDescription = intent.getStringExtra("lesson_description") ?: "No description available"
+        lessonLength = intent.getStringExtra("lesson_length") ?: "Unknown Length"
 
-        // Set the lesson details on the UI
+
+
         val lessonNameTextView: TextView = findViewById(R.id.lessonNameTextView)
-        //val lessonNumberTextView: TextView = findViewById(R.id.lessonNumberTextView)
         val lessonDetailTextView: TextView = findViewById(R.id.lessonDetail)
         val lessonLengthTextView: TextView = findViewById(R.id.lessonLengthTextView)
         lessonNameTextView.text = "$lessonNumber: $lessonName"
-        //lessonNumberTextView.text = "Lesson Number: $lessonNumber"
         lessonDetailTextView.text = lessonDescription
         lessonLengthTextView.text = "Length: $lessonLength"
 

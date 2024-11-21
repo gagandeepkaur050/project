@@ -58,10 +58,10 @@ class LessonsAdapter(private val lessons: MutableList<Lesson>,val lessonlist:Mut
                 Toast.makeText(itemView.context, "Navigating to Lesson ${lesson.number}", Toast.LENGTH_SHORT).show()
             }
         }
-        fun updateLessons(newLessons: List<Lesson>) {
-            lessons.clear()
-            lessons.addAll(newLessons)
-            notifyDataSetChanged()
-        }
+//        fun updateLessons(newLessons: List<Lesson>) {
+//            lessons.clear()
+//            lessons.addAll(newLessons)
+//            notifyDataSetChanged()
+//        }
     }
 }
