@@ -52,15 +52,8 @@ class LessonDetailsActivity : AppCompatActivity() {
         val updatedJsonString = gson.toJson(lessonList)
         sharedPreferences.edit().putString("LESSON_LIST", updatedJsonString).apply()
 
-
-        //val sharedPreferences = getSharedPreferences("lesson_status", Context.MODE_PRIVATE)
-//        val editor = sharedPreferences.edit()
-//        editor.putBoolean("lesson_$lessonNumber", true) // Mark the lesson as complete
-//        editor.apply()
-
         Toast.makeText(this, "Lesson marked as complete", Toast.LENGTH_SHORT).show()
 
-        // Finish the activity and return to the previous screen
         finish()
     }
 

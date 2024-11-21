@@ -1,23 +1,38 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/border"
+    android:gravity="center_vertical">
 
-    <TextView
-        android:id="@+id/textViewLessonName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Lesson 1 - 10:30"
-        android:clickable="true"
-        android:focusable="true"
-        android:textSize="18sp"/>
+<TextView
+android:id="@+id/textViewLessonName"
+android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:text="Lesson 1 - 10:30"
+    android:clickable="true"
+    android:focusable="true"
+    android:textSize="20sp"
+    android:textStyle="bold"
+    android:textColor="#333333"/>
+    <!-- Lesson Status TextView -->
+<TextView
+android:id="@+id/textViewLessonStatus"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Not Completed"
+android:textSize="16sp"
+android:textColor="#FF0000"/>
 
-    <TextView
-        android:id="@+id/textViewLessonStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Not Completed"
-        android:textSize="16sp"/>
-</LinearLayout>
+    <ImageView
+        android:id="@+id/tickIcon"
+        android:layout_width="50dp"
+    android:layout_height="20dp"
+    android:src="@drawable/ic_tick"
+    android:visibility="gone"
+    android:gravity="center_vertical"/>
+
+    </LinearLayout>

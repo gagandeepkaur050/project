@@ -8,9 +8,11 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Learning HTML and CSSsssssssssssssss"
+        android:text="Learning HTML and CSS"
         android:gravity="center"
-        android:textSize="18sp"/>
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#333333"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewLessons"
@@ -23,6 +25,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="GoBack"
-        android:onClick="onButtonBack" />
+        android:onClick="onButtonBack"
+        android:textColor="#FFFFFF"
+        android:background="#E0D680"/>
 
 </LinearLayout>

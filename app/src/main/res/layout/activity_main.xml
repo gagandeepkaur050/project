@@ -3,20 +3,29 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:gravity="center"
+    android:padding="16dp">
+
+    <!-- Heading TextView with Bold Text -->
     <TextView
         android:id="@+id/textViewLessonName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Enter Your Name"
         android:gravity="center"
-        android:textSize="18sp"/>
+        android:textSize="18sp"
+        android:textStyle="bold"
+    android:textColor="#000000"
+    android:paddingBottom="16dp"/>
+
+    <!-- EditText for input -->
     <EditText
         android:id="@+id/editTextName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter your name"
-        android:inputType="text"/>
+        android:inputType="text"
+        android:layout_marginBottom="16dp" />
 
     <!-- Button to save the input -->
     <Button
@@ -24,5 +33,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Continue"
-        android:onClick="onContinueClicked"/>
+        android:layout_marginTop="16dp"
+        android:onClick="onContinueClicked"
+        android:textColor="#FFFFFF"
+    android:background="#E0D680" />
+
 </LinearLayout>

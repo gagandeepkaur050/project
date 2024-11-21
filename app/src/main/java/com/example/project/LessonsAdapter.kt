@@ -5,6 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -29,12 +30,19 @@ class LessonsAdapter(private val lessons: MutableList<Lesson>,val lessonlist:Mut
 
         private val lessonName: TextView = itemView.findViewById(R.id.textViewLessonName)
         private val lessonStatus: TextView = itemView.findViewById(R.id.textViewLessonStatus)
-
+        val tickIcon: ImageView = itemView.findViewById(R.id.tickIcon)
         fun bind(lesson: Lesson) {
             lessonName.text = "${lesson.number}. ${lesson.name} - ${lesson.length}"
 
             //lessonStatus.text = if (lesson.isCompleted) "Completed" else "Not Completed"
-            lessonStatus.text = if (lessonlist[lesson.number-1]) "Completed" else "Not Completed"
+            if (lessonlist[lesson.number-1]) {
+                tickIcon.visibility = View.VISIBLE
+                lessonStatus.text = ""
+            }
+                else {
+                tickIcon.visibility = View.GONE
+                lessonStatus.text = "Not Completed"
+            }
 
             lessonName.setOnClickListener {
                 // Create an Intent to navigate to LessonDetailsActivity

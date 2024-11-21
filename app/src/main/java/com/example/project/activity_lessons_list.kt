@@ -3,6 +3,7 @@ package com.example.project
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -31,17 +32,12 @@ class LessonsListActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
 
-        // Gson to store the data in SharedPreferences
-//        val lessonList = mutableListOf(false, false, false, false,false)
-//        val gson = Gson()
-//        val jsonString = gson.toJson(lessonList)
-//        val sharedPreferences = getSharedPreferences("lessons",Context.MODE_PRIVATE)
-//        sharedPreferences.edit().putString("LESSON_LIST",jsonString).apply()
 
         val sharedPreferences = getSharedPreferences("lessons", Context.MODE_PRIVATE)
         val gson = Gson()
         val jsonString = sharedPreferences.getString("LESSON_LIST",null)
         var lessonList:MutableList<Boolean> = mutableListOf()
+
 
         if(jsonString != null){
             val type = object : TypeToken<List<Boolean>>() {}.type

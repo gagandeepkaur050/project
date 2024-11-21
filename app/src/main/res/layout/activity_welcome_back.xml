@@ -3,45 +3,69 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="#F0F0F0">
 
-    <TextView
-        android:id="@+id/textViewWelcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome, User!"
-        android:textSize="20sp"/>
+    <!-- Welcome TextView with Style -->
+<TextView
+android:id="@+id/textViewWelcome"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Welcome, User!"
+android:textSize="24sp"
+android:textStyle="bold"
+android:textColor="#333333"
+    android:layout_marginBottom="20dp"/>
 
-    <TextView
-        android:id="@+id/textViewProgress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Your Progress: 0/5 lessons completed"/>
+<TextView
+android:id="@+id/textViewProgress"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Your Progress: 0/5 lessons completed"
+android:textSize="16sp"
+android:textColor="#666666"
+    android:layout_marginBottom="20dp"/>
 
-    <TextView
-        android:id="@+id/LessonCompleted"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Lessons Completed:"/>
-    <TextView
-        android:id="@+id/LessonRemaining"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lessons Remaining:"/>
+<TextView
+android:id="@+id/LessonCompleted"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:gravity="center"
+android:text="Lessons Completed:"
+android:textSize="16sp"
+android:textColor="#333333"
+android:layout_marginBottom="10dp"/>
 
-    <Button
-        android:id="@+id/buttonGoToLessons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Go to Lessons List"
-        android:onClick="onGoToLessonsClicked"/>
+<TextView
+android:id="@+id/LessonRemaining"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Lessons Remaining:"
+android:textSize="16sp"
+android:textColor="#333333"
+android:layout_marginBottom="20dp"/>
 
-    <Button
-        android:id="@+id/buttonResetData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Reset Data"
-        android:onClick="onResetDataClicked"/>
+<Button
+android:id="@+id/buttonGoToLessons"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Go to Lessons List"
+android:onClick="onGoToLessonsClicked"
+android:textColor="#FFFFFF"
+android:background="#E0D680"
+android:padding="12dp"
+android:layout_marginBottom="15dp"/>
 
-</LinearLayout>
+    <!-- Reset Data Button with Style -->
+<Button
+android:id="@+id/buttonResetData"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Reset Data"
+android:onClick="onResetDataClicked"
+android:background="#E0D680"
+android:textColor="#FFFFFF"
+android:padding="12dp"
+android:layout_marginTop="10dp"/>
+    </LinearLayout>
