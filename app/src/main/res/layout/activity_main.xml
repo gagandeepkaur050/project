@@ -1,35 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
-    <!-- Text View -->
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello, World!"
-        android:textSize="20sp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"/>
-
-    <!-- Edit Text -->
+    <!-- EditText for user input -->
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editTextName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter your name"
-        android:layout_below="@id/textView"
-        android:layout_marginBottom="20dp"/>
+        android:inputType="textPersonName" />
 
-    <!-- Button -->
+    <!-- Button to save the input -->
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Submit"
-        android:layout_below="@id/editText"
-        android:layout_centerHorizontal="true"
-        android:onClick="onSubmitClicked"/>
-</RelativeLayout>
+        android:text="Save Name" />
+
+    <!-- Button to retrieve and display the input -->
+    <Button
+        android:id="@+id/buttonRetrieve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Saved Name" />
+
+    <!-- TextView to display the stored value -->
+    <TextView
+        android:id="@+id/textViewDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Stored name will appear here"
+        android:paddingTop="16dp" />
+
+
+</LinearLayout>
